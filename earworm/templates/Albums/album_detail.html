@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="record-name">{{ album.title }}</h1>
+<a href="{{ url_for('main.artist_detail', artist_id=artist.id)}}"><h3>{{ artist.name }}</h3></a>
+<p class="release-date">Released: {{ album.release_date.strftime('%A, %d %B, %Y') }}</p>
+<div class="actions">
+    {% if review_exists %}
+            <form action="{{ url_for('main.edit_review', review_id=review.id) }}">
+                <button class="secondary smaller" type="submit">Edit Review</button>
+            </form>
+    {% else %}
+            <form action="{{ url_for('main.create_review', album_id=album.id) }}">
+                <button class="primary smaller" type="submit">Add Review</button>
+                <input type="hidden" name="album_id" value="{{ album.id }}">
+            </form> 
+    {% endif %}
+        <form action="{{ url_for('main.edit_album', album_id=album.id) }}">
+            <button class="secondary smaller" type="submit">Edit Album</button>
+        </form>
+    </div>
+    <div class="album-detail-image" style="background-image:url({{album.cover_url}});">
+    </div>
+    <h2>Reviews</h2>
+    {% if reviews|length == 0 %}
+        <p>There are no reviews currently in Earworm for this album.</p>   
+    {% else %}
+    {% for review in reviews %}
+    {% include 'Reviews/review.html' %}
+    <p class="review-tag">contributed by: <strong>{{ review.written_by.username }}</strong> | {{ review.date_created.strftime('%d %b, %Y') }}</p>
+    {% endfor %}
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% if form.errors %}
+<ul class="errorlist">
+    {% for field in form %}
+        {% for error in field.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    {% endfor %}
+    </ul>
+        {% endif %}
+        {{ form.csrf_token }}
+        {{ form.username.label}}
+        {{ form.username }}
+
+
+        {{ form.password.label }}
+        {{ form.password }}
+
+        {{ form.bio.label }}
+        {{ form.bio (cols="35", rows="5", placeholder="Tell us about yourself.")}}
+        
+
+        {{ form.avatar_url.label }}
+        {{ form.avatar_url (class_="url", placeholder="http://example.com/image.jpg")}}
+
+        {{ form.public.label }}
+        {{ form.public }}
+
+        {{ form.submit }}

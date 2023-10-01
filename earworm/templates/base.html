@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Earworm</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/1aaf6c9800.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{{url_for('static', filename='scripts.js')}}"></script>
+    
+    </head>
+    <body>
+        <div id="log-in-status">
+            {% if current_user.is_authenticated %}
+            <p>Logged in as <strong>{{ current_user.username }}</strong> <a href="/profile/{{ current_user.id }}"><i class="fa-solid fa-user">&nbsp;</i></a></p>
+            {% endif %}
+        </div>
+        <nav>
+            <div class="nav-logo">
+                <a href="{{url_for ('main.all_earworms')}}">
+                <img src="/static/Images/earworm.png" width="250px" alt="Earworm Logo" >
+                </a>
+            </div>
+            <ul>
+                {% if current_user.is_authenticated %}
+                <li><a href="/all_earworms">Browse</a></li>
+                <li><a href="/profile/{{current_user.id}}">Profile</a></li>
+                <li><a href="/logout">Log Out</a></li>
+                {% else %}
+                <li><a href="/all_earworms">Browse</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/login">Log In</a></li>
+                
+                {% endif %}
+            </ul>
+        </nav>
+        <main>
+            {% for message in get_flashed_messages() %}
+                <p class="flash">{{ message }}</p>
+            {% endfor %}
+        {% block content %}{% endblock %}
+    </main>
+        <footer>
+            <p>Earworm &copy; 2023</p>
+            <a href="/about">About</a>
+            <a href="/contact">Contact Us</a>
+        </footer>
+    </body>
+</html>

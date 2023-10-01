@@ -1,0 +1,49 @@
+ DONE - Add error messages to all form pages
+ DONE - user auth routes
+ DONE - Log in redirects to previous page
+ DONE - If no search term entered in bar, redirect to all earworms.
+ DONE - Add content to About page.
+ DONE - Add functionality to Album detail
+ DONE - All Earworms: all reviews, albums, artists (with associated actions) and other users (whose profiles are public).
+ DONE - Research how to style the form elements from this SO: https://stackoverflow.com/questions/34738331/using-flask-wtforms-how-do-i-style-my-form-section-of-the-html
+ DONE - Add legends to all forms
+ DONE - Join us form link works
+ DONE - Sign Up here link corrected
+ DONE - Increase character limit for artist bio
+ DONE - Different design for artist detail
+ DONE - 'Edit Artist' button.
+ DONE - Sort albums by release date desc
+ DONE - Review Content form field
+ DONE - Favourite artist option
+
+
+
+ GOOD PROGRESS - Add separate edit routes so unlogged in folks can read reviews.
+ 
+ IN PROGRESS - Add Profile page (with edit profile section)
+
+// Use JS to put character count on page?? Look up how to do this
+// How to make field read only when going from Artist > Add Album Try This: https://stackoverflow.com/questions/9599551/wtforms-support-for-input-readonly-attribute
+// Add 'Follow Artist' button (and follower count?)
+
+  - Profile page: only logged in user can edit.
+ - Edit pages for reviews: only user who created it can edit.
+   CHECK - Better validation on reviews if possible (MAYBE DONE?)
+   - Can we use pre-existing page info to pre-populate form for creating review etc? Yes.
+
+ Styling General
+ DONE - Footer
+ // - Better styling of users if there's time
+ DONE - Set rating as radio and style into stars, if possible. https://codepen.io/nnoy01/pen/VwPdeNo
+ // - User styling just needs to be image w username underneath IF the user profile is public. Maybe add this to review page as well? YARP.
+
+ Issues
+ DONE - When you go to edit a review the rating stars revert to zero because it's not possible to push them back through to the form. UNLESS: idea to solve:
+ For the form if rating has a value (or could just pass through an 'edit' variable on render?) if rating = 1, show with checked marker, if 2, etc. Might be worth a try.
+ ^ HAHAHAHAHA! This worked!
+
+ When something is a query field, I need to make it so the right value is showing. Managed this on artist > album.
+ Need to make it so that on artist > album it's an uneditable field
+ On edit review it should be and editable field ??? if someone selected the wrong artist for the album first time round or something.
+
+ DON'T FORGET TO WRITE SOME TESTS.

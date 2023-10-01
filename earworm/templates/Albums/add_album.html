@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<fieldset>
+    <legend>Add an Album</legend>
+<form action="{{url_for('main.add_album')}}" method="post">
+    {{ form.csrf_token }}
+        {% include "Albums/album_form.html" %}
+    </fieldset>
+{% endblock %}

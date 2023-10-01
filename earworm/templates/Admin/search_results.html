@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'Admin/search.html' %}
+<h2 class="results-heading">Search Results</h2>
+<p class="seach-summary">Here are your results containing <strong>"{{ search_term }}".</strong></p>
+{% if artist_results %}
+<h2>Artists</h2>
+{% for artist in artist_results %}
+<div class="artist-list">
+<div class="artist-info">
+    {% include 'Artists/artist.html' %}
+</div>
+</div>
+{% endfor %}
+{% endif %}
+{% if album_results %}
+<h2>Albums</h2>
+{% for album in album_results %}
+<a href="{{ url_for('main.album_detail', album_id=album.id) }}">{{ album.title }}</a>
+{% endfor %}
+{% endif %}
+{% if user_results %}
+<h2>Users</h2>
+<div class="user-list"></div>
+{% for user in user_results %}
+{% include 'Users/user.html' %}
+{% endfor %}
+</div>
+{% endif %}
+{% endblock %}

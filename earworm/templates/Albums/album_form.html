@@ -1,0 +1,24 @@
+{% if form.errors %}
+<ul class="errorlist">
+{% for field in form %}
+    {% for error in field.errors %}
+        <li>{{ error }}</li>
+    {% endfor %}
+{% endfor %}
+</ul>
+{% endif %}
+{{ form.title.label }} 
+{{ form.title }} 
+{{ form.release_date.label }} 
+{{ form.release_date }} 
+{{ form.cover_url.label }} 
+{{ form.cover_url }} 
+{{ form.artist.label }} 
+{{ form.artist }}
+{{ form.genre.label }} 
+{% if genre %}
+{{ form.genre (value=album.genre) }}
+{% else %}
+{{ form.genre }}
+{% endif %}
+{{ form.submit }}

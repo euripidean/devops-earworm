@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Earworm</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/1aaf6c9800.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <main>
+            {% for message in get_flashed_messages() %}
+                <p class="flash">{{ message }}</p>
+            {% endfor %}
+        {% block content %}{% endblock %}
+    </main>
+    </body>
+</html>

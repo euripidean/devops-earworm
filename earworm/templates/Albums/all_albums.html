@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'Admin/toolbar.html' %}
+{% include 'Admin/search.html' %}
+<h1>All Albums</h1>
+{% if albums|length == 0 %}
+        <p>There are no albums currently in Earworm.</p>   
+    {% else %}
+    <ul class="albums">
+        {% for album in albums %}
+        {% include 'Albums/album.html' %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}
