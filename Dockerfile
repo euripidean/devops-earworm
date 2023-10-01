@@ -1,5 +1,5 @@
 # Build the base image
-FROM python:3.9
+FROM python:3.8-slim-buster
 
 # Set working directory
 WORKDIR /app
@@ -16,5 +16,5 @@ COPY . .
 # Expose port 3000
 EXPOSE 3000
 
-# Run the flask app with gunicorn
-CMD ["python", "app.py"]
+# Run the flask app
+CMD gunicorn app:app --bind 0.0.0.0:3000

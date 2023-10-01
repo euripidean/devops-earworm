@@ -1,0 +1,18 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: earworm
+      POSTGRES_PASSWORD: earworm
+      POSTGRES_DB: earwormdb
+
+  earworm-app:
+    image: euripidean/earworm:latest
+    ports:
+      - "3000:3000"
+    environment:
+      SECRET_KEY: password
+      DATABASE_URL: postgresql://earworm:earworm@postgres:5432/earwormdb
+    depends_on:
+      - postgres
