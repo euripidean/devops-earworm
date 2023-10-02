@@ -2,17 +2,23 @@ version: "3"
 services:
   postgres:
     image: postgres:latest
+    user: postgres
     environment:
-      POSTGRES_USER: earworm
       POSTGRES_PASSWORD: earworm
       POSTGRES_DB: earwormdb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   earworm-app:
     image: euripidean/earworm:latest
     ports:
-      - "8080:8080"
+      - "3001:3001"
     environment:
       SECRET_KEY: password
-      DATABASE_URL: postgresql://earworm:earworm@postgres:5432/earwormdb
+      DATABASE_URL: postgresql://postgres:earworm@postgres:5432/earwormdb
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
