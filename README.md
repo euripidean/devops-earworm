@@ -6,8 +6,7 @@ Earworm is a place for music fans to share reviews of their favourite albums. It
 https://earworm.dev.euripidean.com/
 
 ### Status Page
-![Uptime Robot status](https://img.shields.io/uptimerobot/status/Wr8gJczDZJ/795401696)
-
+![Uptime Robot status](https://img.shields.io/uptimerobot/status/m795401696-3468cf090b88847292f9d1a5) | ![Uptime Robot ratio (7 days)](https://img.shields.io/uptimerobot/ratio/7/m795401696-3468cf090b88847292f9d1a5)
 https://stats.uptimerobot.com/Wr8gJczDZJ/795401696
 
 ## Development Options
