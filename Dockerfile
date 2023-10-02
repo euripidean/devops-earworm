@@ -13,8 +13,8 @@ RUN pip install -r requirements.txt
 # Copy the app into the container
 COPY . .
 
-# Expose port 3000
-EXPOSE 3000
+# Expose port 8080
+EXPOSE 8080
 
 # Run the flask app
-CMD gunicorn app:app --bind 0.0.0.0:3000
+CMD gunicorn app:app --bind 0.0.0.0:8080
