@@ -1,5 +1,6 @@
-# Earworm
+<img width="1783" alt="Screenshot 2023-10-02 at 3 07 47 PM" src="https://github.com/euripidean/devops-earworm/assets/33559193/66fd744a-edbc-4fc0-a351-ab7b30aba6c8">
 
+# Earworm
 Earworm is a place for music fans to share reviews of their favourite albums. It was built using **Node.js Express**, **SQLAlchemy** and **Jinja2** templating by @euripidean, for a school project. No infringement intended - this project is for educational purposes only.
 
 ### Deployed Version
